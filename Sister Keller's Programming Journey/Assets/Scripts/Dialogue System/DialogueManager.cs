@@ -115,20 +115,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     // Método para encerrar o diálogo
-    /*void EndDialogue()
+    void EndDialogue()
     {
-        currentTrigger.DialogueGivePoints(); // Use a referência ao DialogueTrigger armazenada
-
-        if (currentTrigger.dialogue.isPartOfQuests == true)
-        {
-            currentTrigger.questsSys.CompleteQuest();
-        }
-
         hasTriggered = false;
 
-        PlayerStats.instance.SetWalkingMode();
+        //PlayerStats.instance.SetWalkingMode();
         dialoguePanel.SetActive(false);
         HideResponseButtons();
         Debug.Log("Fim do diálogo.");
-    }*/
+    }
 }
