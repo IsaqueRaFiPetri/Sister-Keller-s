@@ -12,8 +12,8 @@ public class DialogueManager : MonoBehaviour
     public Button[] responseButtons; // Array de botões de resposta
 
     private Queue<string> sentences; // Fila de frases do diálogo atual
-    private Dialogue currentDialogue; // Referência ao diálogo atual
-    private DialogueTrigger currentTrigger; // Adicionando uma referência ao DialogueTrigger
+    Dialogue currentDialogue; // Referência ao diálogo atual
+    DialogueTrigger currentTrigger; // Adicionando uma referência ao DialogueTrigger
 
     [HideInInspector] public bool hasTriggered;
 
