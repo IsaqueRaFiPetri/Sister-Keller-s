@@ -19,7 +19,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         RayCast();
 
-        if (currentInteractable != null && Input.GetButtonDown("Fire1"))
+        if (currentInteractable != null && Input.GetMouseButtonDown(0))
         {
             currentInteractable.Interact();
         }
@@ -36,20 +36,10 @@ public class PlayerInteractions : MonoBehaviour
         {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
-            /*if (Input.GetButtonDown("Fire1") && interactable != null)
+            if (interactable != null)
             {
-                currentInteractable.Interact();
                 currentInteractable = interactable;
-
-                //hit.collider.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
             }
-            //interactionInstruction.SetActive(hit.collider.CompareTag("Interagivel"));
-        }
-        else
-        {
-            interactionInstruction.SetActive(false);
-        }*/
-            print(hit);
         }
     }
 

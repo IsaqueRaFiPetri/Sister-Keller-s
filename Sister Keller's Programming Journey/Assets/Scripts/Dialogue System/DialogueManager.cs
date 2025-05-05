@@ -116,5 +116,6 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         HideResponseButtons();
         Debug.Log("Fim do diálogo.");
+        PlayerStats.instance.SetWalkingMode();
     }
 }
