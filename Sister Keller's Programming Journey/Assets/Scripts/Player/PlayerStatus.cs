@@ -14,9 +14,6 @@ public class PlayerStats : MonoBehaviour
 
     public UnityEvent OnPause, OnUnpause;
 
-    internal Vector3 velocity;
-    public GameObject player;
-
     void Awake()
     {
         instance = this;
