@@ -1,21 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections;
-using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI dialogueText; // Texto para exibir o diálogo
-    public TextMeshProUGUI nameText; // Texto para exibir o diálogo
+    public TMP_Text dialogueText; // Texto para exibir o diálogo
     public GameObject dialoguePanel; // Painel de diálogo
     public Button[] responseButtons; // Array de botões de resposta
 
     private Queue<string> sentences; // Fila de frases do diálogo atual
-    Dialogue currentDialogue; // Referência ao diálogo atual
-    DialogueTrigger currentTrigger; // Adicionando uma referência ao DialogueTrigger
-
-    [HideInInspector] public bool hasTriggered;
+    private Dialogue currentDialogue; // Referência ao diálogo atual
 
     void Start()
     {
@@ -25,13 +21,9 @@ public class DialogueManager : MonoBehaviour
     }
 
     // Método para iniciar o diálogo
-    public void StartDialogue(Dialogue dialogue, DialogueTrigger trigger)
+    public void StartDialogue(Dialogue dialogue)
     {
-        hasTriggered = true;
-
         currentDialogue = dialogue;
-        currentTrigger = trigger; // Armazena a referência ao DialogueTrigger
-        nameText.SetText(currentDialogue.name);
         dialoguePanel.SetActive(true);
         sentences.Clear();
 
@@ -64,7 +56,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.02f);
+            yield return null;
         }
     }
 
@@ -76,17 +68,21 @@ public class DialogueManager : MonoBehaviour
             for (int i = 0; i < currentDialogue.options.Length; i++)
             {
                 responseButtons[i].gameObject.SetActive(true);
-                responseButtons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.options[i].responseText;
+                TMP_Text buttonText = responseButtons[i].GetComponentInChildren<TMP_Text>();
+                if (buttonText != null)
+                {
+                    buttonText.text = currentDialogue.options[i].responseText;
+                }
 
                 // Adiciona o listener ao botão
-                int optionIndex = i; // Criação de uma cópia local para evitar problemas de escopo
+                int optionIndex = i; // Cópia local para evitar problemas de escopo
                 responseButtons[i].onClick.RemoveAllListeners();
                 responseButtons[i].onClick.AddListener(() => OnResponseSelected(optionIndex));
             }
         }
         else
         {
-            //EndDialogue();
+            EndDialogue();
         }
     }
 
@@ -97,11 +93,11 @@ public class DialogueManager : MonoBehaviour
         DialogueOption selectedOption = currentDialogue.options[optionIndex];
         if (selectedOption.nextDialogue != null)
         {
-            StartDialogue(selectedOption.nextDialogue, currentTrigger);
+            StartDialogue(selectedOption.nextDialogue);
         }
         else
         {
-            //EndDialogue();
+            EndDialogue();
         }
     }
 
@@ -117,9 +113,6 @@ public class DialogueManager : MonoBehaviour
     // Método para encerrar o diálogo
     void EndDialogue()
     {
-        hasTriggered = false;
-
-        //PlayerStats.instance.SetWalkingMode();
         dialoguePanel.SetActive(false);
         HideResponseButtons();
         Debug.Log("Fim do diálogo.");
