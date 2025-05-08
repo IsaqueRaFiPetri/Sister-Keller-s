@@ -17,11 +17,11 @@ public class OpenDoor : InterectableObj
         PlayerInteract.Instance.OnInteractionEffected.Invoke();
         if (doorOpened)
         {
-            doorRotation.rotation = Quaternion.Euler(-90, closeAngle, 0);
+            doorRotation.rotation = Quaternion.Euler(0, closeAngle, 0);
             doorOpened = false;
             return;
         }
         doorOpened = true;
-        doorRotation.rotation = Quaternion.Euler(-90, openAngle, 0);
+        doorRotation.rotation = Quaternion.Euler(0, openAngle, 0);
     }
 }
