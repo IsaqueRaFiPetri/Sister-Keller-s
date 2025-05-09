@@ -26,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540372696227637756}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 10.108559, y: -5.2051435, z: 4.1864843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7403574038809753268}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &9189532706589431115
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 7403574038809753268}
   - component: {fileID: 5164979996185001223}
   - component: {fileID: 7534031175292477532}
+  - component: {fileID: 3279634137935562221}
+  - component: {fileID: 8051083640925441543}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -158,6 +160,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2676308, y: 2.145511, z: 0.13079067}
   m_Center: {x: 0.59244746, y: 1.2402722, z: -0.02065222}
+--- !u!114 &3279634137935562221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407101118671400030}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &8051083640925441543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407101118671400030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bf1c07f21875043b7a72be6b0e1b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  rayDistance: 10
 --- !u!1 &8110676016433942798
 GameObject:
   m_ObjectHideFlags: 0

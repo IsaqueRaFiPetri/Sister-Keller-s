@@ -2124,6 +2124,8 @@ GameObject:
   - component: {fileID: 90175293}
   - component: {fileID: 90175294}
   - component: {fileID: 90175295}
+  - component: {fileID: 90175297}
+  - component: {fileID: 90175296}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -2184,6 +2186,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2676308, y: 2.145511, z: 0.13079067}
   m_Center: {x: 0.59244746, y: 1.2402722, z: -0.02065222}
+--- !u!114 &90175296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90175292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bf1c07f21875043b7a72be6b0e1b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 4459864850718597571}
+  rayDistance: 10
+--- !u!114 &90175297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90175292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &99036284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27871,7 +27905,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411259759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -41508,6 +41542,8 @@ GameObject:
   - component: {fileID: 33218899477869291}
   - component: {fileID: 23072248455527541}
   - component: {fileID: 7219536459005113383}
+  - component: {fileID: 7219536459005113384}
+  - component: {fileID: 7219536459005113385}
   m_Layer: 0
   m_Name: Cube_10
   m_TagString: Untagged
@@ -41834,6 +41870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8051083640925441543, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 4459864850718597571}
     - target: {fileID: 9020599221697399998, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.108559
@@ -41971,6 +42011,7 @@ GameObject:
   - component: {fileID: 8327609879693496524}
   - component: {fileID: 5160409844659858931}
   - component: {fileID: 8327609879693496525}
+  - component: {fileID: 8327609879693496526}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Player
@@ -42625,6 +42666,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a1b64279c34bd0a49abf18b790a099b4, type: 3}
+--- !u!114 &7219536459005113384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451301401908075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bf1c07f21875043b7a72be6b0e1b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 4459864850718597571}
+  rayDistance: 10
+--- !u!114 &7219536459005113385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451301401908075}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &7780818868314006410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42719,6 +42792,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   handDistance: 30
+--- !u!114 &8327609879693496526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459864849931045719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bf1c07f21875043b7a72be6b0e1b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 4459864850718597571}
+  rayDistance: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
