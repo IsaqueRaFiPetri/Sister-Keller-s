@@ -3089,7 +3089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4459864850718597571}
-  rayDistance: 10
+  rayDistance: 3
 --- !u!114 &90175297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23754,6 +23754,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 4459864850718597571}
+    - target: {fileID: 8051083640925441543, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
+      propertyPath: rayDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9020599221697399998, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -44260,13 +44264,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1114761175797054, guid: 72c1249698983ad4988f693663fa1e21, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1411259761}
-    - targetCorrespondingSourceObject: {fileID: 1114761175797054, guid: 72c1249698983ad4988f693663fa1e21, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1411259760}
     - targetCorrespondingSourceObject: {fileID: 1114761175797054, guid: 72c1249698983ad4988f693663fa1e21, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1411259764}
+    - targetCorrespondingSourceObject: {fileID: 1114761175797054, guid: 72c1249698983ad4988f693663fa1e21, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1411259767}
   m_SourcePrefab: {fileID: 100100000, guid: 72c1249698983ad4988f693663fa1e21, type: 3}
 --- !u!4 &1411259758 stripped
 Transform:
@@ -44300,18 +44304,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 98a3eef7f73edd846970e62f64af6a46, type: 3}
---- !u!114 &1411259761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411259759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd3dad4a485845429b47f803a2459cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1411259764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44330,6 +44322,33 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1411259767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411259759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3f01b6f4125fc4d89bbcf4af63bf66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1411259759}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1412068902
 GameObject:
   m_ObjectHideFlags: 0
@@ -58507,6 +58526,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 4459864850718597571}
+    - target: {fileID: 8051083640925441543, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
+      propertyPath: rayDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9020599221697399998, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -66640,6 +66663,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 4459864850718597571}
+    - target: {fileID: 8051083640925441543, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
+      propertyPath: rayDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9020599221697399998, guid: 2e6b64e50dad7d144850efea258ef11a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.108559
@@ -66981,10 +67008,10 @@ MonoBehaviour:
   sprintBar: {fileID: 4459864851211143061}
   sprintBarWidthPercent: 0.3
   sprintBarHeightPercent: 0.02
-  enableJump: 1
+  enableJump: 0
   jumpKey: 32
   jumpPower: 5
-  enableCrouch: 1
+  enableCrouch: 0
   holdToCrouch: 1
   crouchKey: 306
   crouchHeight: 0.75
@@ -68932,7 +68959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4459864850718597571}
-  rayDistance: 10
+  rayDistance: 3
 --- !u!114 &8051083641189242710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68946,7 +68973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4459864850718597571}
-  rayDistance: 10
+  rayDistance: 3
 --- !u!114 &8051083641226410953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68960,7 +68987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4459864850718597571}
-  rayDistance: 10
+  rayDistance: 3
 --- !u!1 &8110676015526749376
 GameObject:
   m_ObjectHideFlags: 0
@@ -69132,7 +69159,7 @@ MonoBehaviour:
   OnInteractionEffected:
     m_PersistentCalls:
       m_Calls: []
-  handDistance: 30
+  handDistance: 3
 --- !u!114 &8327609879693496526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69146,7 +69173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4459864850718597571}
-  rayDistance: 10
+  rayDistance: 3
 --- !u!23 &8462042635334076431
 MeshRenderer:
   m_ObjectHideFlags: 0
