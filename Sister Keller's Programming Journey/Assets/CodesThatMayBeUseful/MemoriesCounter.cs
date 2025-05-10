@@ -25,14 +25,6 @@ public class MemoriesCounter : MonoBehaviour
         memoriesCounter.text = "Collect " + Artifact.ToString() + " Artifacts ";
 
          
-             if (Artifact == 0) 
-            {
-                Exit.SetActive(true);
-                memoriesCounter.text = "FIND the white door";
-                InimigoNormal.SetActive(false);
-                InimigoInv.SetActive(true);
-            }
-            animator.SetFloat("Artifacts", Artifact);
 
     }
 
