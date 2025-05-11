@@ -11013,6 +11013,8 @@ MonoBehaviour:
   speed: 200
   infoPanel: {fileID: 509119413}
   needToOpen: 2
+  limitLeft: -700
+  limitRight: 700
 --- !u!114 &2074913162
 MonoBehaviour:
   m_ObjectHideFlags: 0

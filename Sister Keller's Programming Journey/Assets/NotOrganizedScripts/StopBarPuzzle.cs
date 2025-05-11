@@ -15,8 +15,8 @@ public class StopBarPuzzle : MonoBehaviour
     private float direction = 1f;
 
     // Limites para a reversão (ajuste conforme o layout da sua barra)
-    [SerializeField] float limitLeft = -700f;
-    [SerializeField] float limitRight = 700f;
+    [SerializeField] float limitLeft;
+    [SerializeField] float limitRight;
 
     void Start()
     {
