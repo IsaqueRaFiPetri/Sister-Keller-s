@@ -6,26 +6,31 @@ public class OpenPuzzle : MonoBehaviour, IInteractable
     [SerializeField] GameObject puzzleObj;
     [SerializeField] string sceneName;
 
-    [SerializeField] bool isObj, isScene;
+    [SerializeField] bool isObjUI, isScene, isObjInScene;
 
-    #region ByClick
-    void OpenPuzzleByUI()
+    public void Interact()
     {
-        puzzleObj.SetActive(true);
+        if (isObjUI)
+            OpenMinigameByUI();
+        else if (isScene)
+            OpenMinigameScene();
+        else if (isObjInScene)
+            OpenMinigameInScene();
     }
 
+    #region ByClick
+    void OpenMinigameByUI()
+    {
+        puzzleObj.SetActive(true);
+        PlayerStats.instance.SetUIingMode();
+    }
     void OpenMinigameScene()
     {
         SceneManager.LoadScene(sceneName);
     }
-
-    public void Interact()
+    void OpenMinigameInScene()
     {
-        if(isObj)
-            OpenPuzzleByUI();
 
-        else if(isScene)
-            OpenMinigameScene();
     }
     #endregion ByClick
 }

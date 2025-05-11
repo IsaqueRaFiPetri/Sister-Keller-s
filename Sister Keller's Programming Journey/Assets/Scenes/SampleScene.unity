@@ -8371,8 +8371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 282912446}
   sceneName: 
-  isObj: 1
+  isObjUI: 1
   isScene: 0
+  isObjInScene: 0
 --- !u!65 &1523921941
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8905,8 +8906,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 0}
   sceneName: ComputerMiniGame
-  isObj: 0
+  isObjUI: 0
   isScene: 1
+  isObjInScene: 0
 --- !u!65 &1603191777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9105,8 +9107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleObj: {fileID: 2074913159}
   sceneName: 
-  isObj: 1
+  isObjUI: 1
   isScene: 0
+  isObjInScene: 0
 --- !u!65 &1614823300
 BoxCollider:
   m_ObjectHideFlags: 0
