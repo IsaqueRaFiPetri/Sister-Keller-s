@@ -22,6 +22,8 @@ public class StopBarPuzzle : MonoBehaviour
     {
         if (infoPanel != null)
             infoPanel.SetActive(false);
+
+        MoveGreenZoneRandomly();
     }
 
     void Update()
