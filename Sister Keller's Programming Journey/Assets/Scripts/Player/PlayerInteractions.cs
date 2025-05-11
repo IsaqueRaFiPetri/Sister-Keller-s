@@ -10,11 +10,12 @@ public class PlayerInteractions : MonoBehaviour
 
     //public GameObject interactionInstruction;
 
-    void Start()
+    private void Awake()
     {
         Instance = this;
         cam = Camera.main.transform;
     }
+
     void Update()
     {
         RayCast();

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OpenDoor : InterectableObj
+public class OpenDoor : MonoBehaviour, IInteractable
 {
     [SerializeField] bool doorOpened;
     [SerializeField]float openAngle, closeAngle;
@@ -12,9 +12,8 @@ public class OpenDoor : InterectableObj
     {
         doorRotation = GetComponent<Transform>();
     }
-    protected override void Interact()
+    public void Interact()
     {
-        PlayerInteract.Instance.OnInteractionEffected.Invoke();
         if (doorOpened)
         {
             doorRotation.rotation = Quaternion.Euler(0, closeAngle, 0);

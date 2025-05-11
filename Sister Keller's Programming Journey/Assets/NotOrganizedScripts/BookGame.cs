@@ -1,19 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BookGame : InterectableObj
-{
+public class BookGame : MonoBehaviour, IInteractable
+{ 
     public UnityEvent bookGame;
-
-    void Start()
+    public void Interact()
     {
-        
-    }
-
-    // Update is called once per frame
-    protected override void Interact()
-    {
-        PlayerInteract.Instance.OnInteractionEffected.Invoke();
         bookGame.Invoke();
     }
 }

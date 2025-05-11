@@ -1,9 +1,10 @@
-public class MemorieObj : InterectableObj
+using UnityEngine;
+
+public class MemorieObj : MonoBehaviour, IInteractable
 {
-    protected override void Interact()
+    public void Interact()
     {
         MemoriesCounter.Instance.memoriesCount++;
-        PlayerInteract.Instance.OnInteractionEffected.Invoke();
         Destroy(gameObject);
         Destroy(transform.parent.gameObject);
         MemoriesCounter.Instance.Artifact--;
