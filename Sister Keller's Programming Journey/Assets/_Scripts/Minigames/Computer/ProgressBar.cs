@@ -9,6 +9,7 @@ public class ProgressBar : MonoBehaviour
     public float fillSpeed = 0.2f;
     public UnityEvent GameWin;
     public UnityEvent GameLose;
+    public WonMinigame WonMinigame;
 
     private float timer = 0f;
     private bool isFilling = false;
@@ -24,6 +25,8 @@ public class ProgressBar : MonoBehaviour
     void Start()
     {
         StartFilling();
+        WonMinigame = Object.FindFirstObjectByType<WonMinigame>();
+
     }
 
     void Update()
@@ -39,6 +42,7 @@ public class ProgressBar : MonoBehaviour
                 isFilling = false;
                 Debug.Log("Download completo!");
                 GameWin.Invoke();
+                WonMinigame.WonPcGame = true;
             }
         }
 
