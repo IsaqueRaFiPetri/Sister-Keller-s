@@ -3,20 +3,26 @@ using UnityEngine.UI;
 
 public class StopBarPuzzle : MonoBehaviour
 {
+    [Header("Pointer Variables")]
     [SerializeField] RectTransform pointer;
-    [SerializeField] RectTransform greenZone;
     [SerializeField] float speed = 200f;
 
-    [SerializeField] GameObject infoPanel;
-    [SerializeField] int needToOpen = 3;
+    [Header("GreenBar Variables")]
+    [SerializeField] RectTransform greenZone;
+    [SerializeField] float minSize;
+    [SerializeField] float maxSize;
 
-    private bool moving = true;
-    private int neededCorrect = 0;
-    private float direction = 1f;
-
-    // Limites para a reversão (ajuste conforme o layout da sua barra)
+    [Header("Limits of the base bar")]
     [SerializeField] float limitLeft;
     [SerializeField] float limitRight;
+
+    [Header("Reward")]
+    [SerializeField] GameObject infoPanel;
+    [SerializeField] int needToOpen;
+
+    bool moving = true;
+    int neededCorrect = 0;
+    float direction = 1f;
 
     void Start()
     {
@@ -70,14 +76,12 @@ public class StopBarPuzzle : MonoBehaviour
                 return;
             }
 
-            Invoke(nameof(ResetGame), 1f);
-            MoveGreenZoneRandomly();
+            Invoke(nameof(ResetGame), 0f);
         }
         else
         {
             Debug.Log("FALHOU! Tente novamente.");
-            Invoke(nameof(ResetGame), 1f);
-            MoveGreenZoneRandomly();
+            Invoke(nameof(ResetGame), 0f);
         }
 
         float halfWidth = greenZone.rect.width / 2f;
@@ -87,16 +91,25 @@ public class StopBarPuzzle : MonoBehaviour
 
     public void ResetGame()
     {
-        // Opcional: reseta para a borda inicial e direção para direita
         pointer.anchoredPosition = new Vector2(limitLeft, pointer.anchoredPosition.y);
         direction = 1f;
         moving = true;
+
+        AdjustGreenZoneSize();
+        MoveGreenZoneRandomly();
     }
-    void MoveGreenZoneRandomly()
+
+    #region GreenBarAjustment
+    void MoveGreenZoneRandomly() //for the position of the greenBar
     {
         float halfWidth = greenZone.rect.width / 2f;
         float randomX = Random.Range(limitLeft + halfWidth, limitRight - halfWidth);
         greenZone.anchoredPosition = new Vector2(randomX, greenZone.anchoredPosition.y);
     }
-
+    void AdjustGreenZoneSize() //for the length of the greenBar
+    {
+        float newWidth = Random.Range(minSize, maxSize);
+        greenZone.sizeDelta = new Vector2(newWidth, greenZone.sizeDelta.y);
+    }
+    #endregion GreenBarAjustment
 }
