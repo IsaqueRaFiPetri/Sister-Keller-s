@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     PlayerModes modes;
     FirstPersonController controller;
     public static int politicalPoints, politicsPointsToConclude = 58;
+    PlayerInteractions playerInteractions;
 
     public UnityEvent OnPause, OnUnpause;
 
@@ -18,6 +19,12 @@ public class PlayerStats : MonoBehaviour
     {
         instance = this;
         controller = GetComponent<FirstPersonController>();
+        SetWalkingMode();
+    }
+    public void OnEnable()
+    {
+        playerInteractions = Object.FindFirstObjectByType<PlayerInteractions>();
+        PlayerInteractions.Instance.enabled = true;
     }
 
     void Update()

@@ -6,7 +6,10 @@ public class OutlineRaycaster : MonoBehaviour
     public float rayDistance = 10f;
 
     private Outline lastOutline;
-
+    public void Start()
+    {
+        cam = Object.FindFirstObjectByType<Camera>();
+    }
     void Update()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition); // ou usa transform.forward se quiser Raycast na frente do player
