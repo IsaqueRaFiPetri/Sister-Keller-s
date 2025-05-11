@@ -12,7 +12,7 @@ public class Virus : MonoBehaviour
     void Start()
     {
         speed = Random.Range(2f, 6f);
-        health = Random.Range(3, 8); // de 3 a 10
+        health = Random.Range(2, 5); // de 3 a 10
     }
 
     public void Setup(Transform target, ProgressBar progressBar, VirusManager virusManager)

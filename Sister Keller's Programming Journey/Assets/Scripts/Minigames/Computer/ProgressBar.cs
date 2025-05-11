@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     public Image fillImage;
-    public float duration = 20f;
+    public float duration = 60f;
+    public float fillSpeed = 0.2f;
 
     private float timer = 0f;
     private bool isFilling = false;
@@ -26,7 +27,8 @@ public class ProgressBar : MonoBehaviour
     {
         if (isFilling)
         {
-            timer += Time.deltaTime;
+            timer += Time.deltaTime * fillSpeed;
+
             fillImage.fillAmount = Progress;
 
             if (Progress >= 1f)
@@ -35,6 +37,7 @@ public class ProgressBar : MonoBehaviour
                 Debug.Log("Download completo!");
             }
         }
+
     }
 
     public void StartFilling()

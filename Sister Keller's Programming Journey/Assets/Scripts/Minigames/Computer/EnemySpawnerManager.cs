@@ -20,7 +20,7 @@ public class EnemySpawnerManager : MonoBehaviour
         if (progressBar == null || spawnPoints.Count == 0) return;
 
         float progress = progressBar.Progress;
-        float currentSpawnInterval = Mathf.Lerp(baseSpawnInterval, 1.2f, progress);
+        float currentSpawnInterval = Mathf.Lerp(baseSpawnInterval, 0.9f, progress);
 
         spawnTimer += Time.deltaTime;
 

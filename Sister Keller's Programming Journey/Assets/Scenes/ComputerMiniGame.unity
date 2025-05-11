@@ -366,7 +366,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillImage: {fileID: 7986575363962756032}
-  duration: 5
+  duration: 20
+  fillSpeed: 1
   maxVirusHits: 10
   currentVirusHits: 0
 --- !u!1 &722728172
@@ -1023,6 +1024,7 @@ MonoBehaviour:
   progressBar: {fileID: 621122476}
   target: {fileID: 27860737}
   virusManager: {fileID: 722728174}
+  spawnAcceleration: 0.01
 --- !u!222 &1432385223154854250
 CanvasRenderer:
   m_ObjectHideFlags: 0
