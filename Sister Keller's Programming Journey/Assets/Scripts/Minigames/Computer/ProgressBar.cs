@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
@@ -6,6 +7,8 @@ public class ProgressBar : MonoBehaviour
     public Image fillImage;
     public float duration = 60f;
     public float fillSpeed = 0.2f;
+    public UnityEvent GameWin;
+    public UnityEvent GameLose;
 
     private float timer = 0f;
     private bool isFilling = false;
@@ -35,9 +38,14 @@ public class ProgressBar : MonoBehaviour
             {
                 isFilling = false;
                 Debug.Log("Download completo!");
+                GameWin.Invoke();
             }
         }
 
+    }
+    public void AfterGame()
+    {
+        maxVirusHits = 10;
     }
 
     public void StartFilling()
@@ -63,6 +71,7 @@ public class ProgressBar : MonoBehaviour
             OnLose?.Invoke();
             isFilling = false;
             Debug.Log("Você perdeu: vírus demais atingiram o download.");
+            GameLose.Invoke();
         }
     }
 }
