@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,11 +16,11 @@ public class Verifier : MonoBehaviour
         currentDropdowns = 0;
         Instance = this;
     }
-    public void VerifyCall()
+    public void VerifyCall() //put in OnClick
     {
         Verify.Invoke();
     }
-    public void verifier()
+    public void verifier() //put in OnClick
     {
         if (currentDropdowns >= correctDropdowns)
         {

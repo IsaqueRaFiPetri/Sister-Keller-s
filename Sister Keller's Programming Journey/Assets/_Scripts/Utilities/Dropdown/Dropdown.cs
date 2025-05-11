@@ -13,7 +13,7 @@ public class Dropdown : MonoBehaviour
         else
             correct = false;
     }
-    public void Verify()
+    public void Verify() //put in the event VERIFY in VERIFIER.cs
     {
         if (correct)
         {
