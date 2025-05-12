@@ -10,8 +10,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats instance;
     PlayerModes modes;
     FirstPersonController controller;
-    public static int politicalPoints, politicsPointsToConclude = 58;
-    PlayerInteractions playerInteractions;
+    PlayerInteractions playerInt;
 
     public UnityEvent OnPause, OnUnpause;
 
@@ -20,12 +19,14 @@ public class PlayerStats : MonoBehaviour
         instance = this;
         controller = GetComponent<FirstPersonController>();
         SetWalkingMode();
+        playerInt = GetComponent<PlayerInteractions>();
     }
-    public void OnEnable()
+
+    /*public void OnEnable()
     {
         playerInteractions = Object.FindFirstObjectByType<PlayerInteractions>();
         PlayerInteractions.Instance.enabled = true;
-    }
+    }*/
 
     void Update()
     {
@@ -35,14 +36,14 @@ public class PlayerStats : MonoBehaviour
                 controller.enabled = true;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                PlayerInteractions.Instance.enabled = true;
+                //PlayerInteractions.Instance.enabled = true;
                 PlayerInteractions.Instance.RayCast();
                 break;
             case PlayerModes.UIing:
                 controller.enabled = false;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                PlayerInteractions.Instance.enabled = false;
+                //PlayerInteractions.Instance.enabled = false;
                 break;
         }
         PauseControl();

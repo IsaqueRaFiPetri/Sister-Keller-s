@@ -5,7 +5,7 @@ public class StopBarPuzzle : MonoBehaviour
 {
     [Header("Pointer Variables")]
     [SerializeField] RectTransform pointer;
-    [SerializeField] float speed = 200f;
+    [SerializeField] float speed;
 
     [Header("GreenBar Variables")]
     [SerializeField] RectTransform greenZone;
@@ -19,6 +19,9 @@ public class StopBarPuzzle : MonoBehaviour
     [Header("Reward")]
     [SerializeField] GameObject infoPanel;
     [SerializeField] int needToOpen;
+    [SerializeField] GameObject gamePainel;
+    [SerializeField] float hideDelay;
+    [SerializeField] GameObject hideBTN;
 
     bool moving = true;
     int neededCorrect = 0;
@@ -72,7 +75,10 @@ public class StopBarPuzzle : MonoBehaviour
             {
                 Debug.Log("Desbloqueado!");
                 if (infoPanel != null)
+                {
                     infoPanel.SetActive(true);
+                    Invoke(nameof(HideMinigame), hideDelay);
+                }
                 return;
             }
 
@@ -89,6 +95,16 @@ public class StopBarPuzzle : MonoBehaviour
         greenZone.anchoredPosition = new Vector2(randomX, greenZone.anchoredPosition.y);
     }
 
+    void HideMinigame()
+    {
+        if (infoPanel != null)
+        {
+            gamePainel.SetActive(false);
+            hideBTN.SetActive(true);
+        }
+            
+    }
+
     public void ResetGame()
     {
         pointer.anchoredPosition = new Vector2(limitLeft, pointer.anchoredPosition.y);
@@ -97,6 +113,8 @@ public class StopBarPuzzle : MonoBehaviour
 
         AdjustGreenZoneSize();
         MoveGreenZoneRandomly();
+
+        PlayerStats.instance.SetWalkingMode();
     }
 
     #region GreenBarAjustment
@@ -112,4 +130,6 @@ public class StopBarPuzzle : MonoBehaviour
         greenZone.sizeDelta = new Vector2(newWidth, greenZone.sizeDelta.y);
     }
     #endregion GreenBarAjustment
+
+
 }

@@ -5,15 +5,11 @@ public class InteractingState : MonoBehaviour
     public FirstPersonController FirstPersonController;
     public void Interacting()
     {
-        FirstPersonController.walkSpeed = 0;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        PlayerStats.instance.SetUIingMode();
     }
     public void NotInteracting()
     {
-        FirstPersonController.walkSpeed = 5;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        PlayerStats.instance.SetWalkingMode();
     }
     public void Start()
     {

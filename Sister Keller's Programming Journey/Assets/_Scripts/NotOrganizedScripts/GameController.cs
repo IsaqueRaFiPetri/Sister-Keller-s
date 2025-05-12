@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 
     private static GameController instance;
     public PlayerStats playerStats;
+    public PlayerInteractions playerInt;
 
 
     void Awake()
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour
     public void Start()
     {
         playerStats = Object.FindFirstObjectByType<PlayerStats>();
+        playerInt = Object.FindFirstObjectByType<PlayerInteractions>();
     }
 
     void OnEnable()
@@ -43,7 +45,7 @@ public class GameController : MonoBehaviour
             if (player != null)
                 player.SetActive(true);
                 playerStats.SetWalkingMode();
-                PlayerInteractions.Instance.enabled = true;
+                playerInt.enabled = true;
 
         }
         else

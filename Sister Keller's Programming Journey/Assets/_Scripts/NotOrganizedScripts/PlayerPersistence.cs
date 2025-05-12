@@ -9,14 +9,15 @@ public class PlayerPersistence : MonoBehaviour
         if (transform.parent != null)
             transform.SetParent(null);
 
-        if (instance != null && instance != this)
+        /*if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
-        }
+        }*/
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+        
     }
 
 }
