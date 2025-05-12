@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 //[RequireComponent(typeof(BoxCollider))]
 public class OpenPuzzle : MonoBehaviour, IInteractable
 {
-    [SerializeField] GameObject puzzleObj;
+    [SerializeField] GameObject puzzleObj, puzzleArea, player;
     [SerializeField] string sceneName;
 
     [SerializeField] bool isObjUI, isScene, isObjInScene;
@@ -31,7 +31,9 @@ public class OpenPuzzle : MonoBehaviour, IInteractable
     }
     void OpenMinigameInScene()
     {
-
+        puzzleArea.SetActive(true);
+        PlayerStats.instance.SetUIingMode();
+        player.SetActive(false);
     }
     #endregion ByClick
 }
