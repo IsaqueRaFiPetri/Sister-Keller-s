@@ -25,8 +25,7 @@ public class ProgressBar : MonoBehaviour
     void Start()
     {
         StartFilling();
-        WonMinigame = Object.FindFirstObjectByType<WonMinigame>();
-
+        //WonMinigame = Object.FindFirstObjectByType<WonMinigame>();
     }
 
     void Update()

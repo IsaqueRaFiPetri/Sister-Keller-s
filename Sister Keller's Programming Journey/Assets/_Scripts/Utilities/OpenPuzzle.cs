@@ -14,22 +14,22 @@ public class OpenPuzzle : MonoBehaviour, IInteractable
         if (isObjUI)
             OpenMinigameByUI();
         else if (isScene)
-            OpenMinigameScene();
+            OpenMinigameOnAnotherScene();
         else if (isObjInScene)
             OpenMinigameInScene();
     }
 
     #region ByClick
-    void OpenMinigameByUI()
+    public void OpenMinigameByUI()
     {
         puzzleObj.SetActive(true);
         PlayerStats.instance.SetUIingMode();
     }
-    void OpenMinigameScene()
+    public void OpenMinigameOnAnotherScene()
     {
         SceneManager.LoadScene(sceneName);
     }
-    void OpenMinigameInScene()
+    public void OpenMinigameInScene()
     {
         puzzleArea.SetActive(true);
         PlayerStats.instance.SetUIingMode();
