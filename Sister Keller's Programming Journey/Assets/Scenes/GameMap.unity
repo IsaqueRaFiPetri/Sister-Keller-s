@@ -17076,7 +17076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6935577fa0f97ad4ab77d8a4f7db4b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPersonController: {fileID: 4459864849931045725}
+  FirstPersonController: {fileID: 0}
 --- !u!4 &563360039
 Transform:
   m_ObjectHideFlags: 0

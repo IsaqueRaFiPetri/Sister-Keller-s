@@ -15,4 +15,8 @@ public class InteractingState : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    public void Start()
+    {
+        FirstPersonController = Object.FindFirstObjectByType<FirstPersonController>();
+    }
 }
