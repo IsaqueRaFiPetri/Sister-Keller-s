@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//[RequireComponent(typeof(BoxCollider))]
 public class OpenPuzzle : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject puzzleObj;
