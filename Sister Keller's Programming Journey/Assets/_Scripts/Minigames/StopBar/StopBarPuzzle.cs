@@ -114,7 +114,6 @@ public class StopBarPuzzle : MonoBehaviour
         AdjustGreenZoneSize();
         MoveGreenZoneRandomly();
 
-        PlayerStats.instance.SetWalkingMode();
     }
 
     #region GreenBarAjustment

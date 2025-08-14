@@ -13,6 +13,5 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
     public void TriggerDialogue()
     {
         dialogueManager.StartDialogue(this.dialogue);
-        PlayerStats.instance.SetUIingMode();
     }
 }

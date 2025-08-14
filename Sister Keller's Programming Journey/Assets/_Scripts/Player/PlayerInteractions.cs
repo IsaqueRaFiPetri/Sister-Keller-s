@@ -3,45 +3,34 @@ using UnityEngine;
 public class PlayerInteractions : MonoBehaviour
 {
     public static PlayerInteractions Instance;
-    
-    Transform cam;
-    public float handDistance = 3;
-    private IInteractable currentInteractable;
+    [SerializeField] Camera cam;
+    [SerializeField] LayerMask layerMask;
 
-    //public GameObject interactionInstruction;
+    IInteractable currentInteractable;
 
     private void Awake()
     {
         Instance = this;
-        cam = Camera.main.transform;
     }
 
     void Update()
     {
-        RayCast();
-
-        if (currentInteractable != null && Input.GetMouseButtonDown(0))
-        {
-            currentInteractable.Interact();
-        }
+        MousePos();        
     }
 
-    public void RayCast()
+    public void MousePos()
     {
-        RaycastHit hit;
-        Debug.DrawRay(cam.position, cam.forward * handDistance, Color.blue);
-
-        currentInteractable = null;
-
-        if (Physics.Raycast(cam.position, cam.forward, out hit, handDistance))
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray, out RaycastHit rayHit, float.MaxValue, layerMask))
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            transform.position = rayHit.point;
 
-            if (interactable != null)
+            currentInteractable = rayHit.collider.GetComponent<IInteractable>();
+
+            if (currentInteractable != null && Input.GetMouseButtonDown(0))
             {
-                currentInteractable = interactable;
+                currentInteractable.Interact();
             }
         }
-    }
-
+    }   
 }

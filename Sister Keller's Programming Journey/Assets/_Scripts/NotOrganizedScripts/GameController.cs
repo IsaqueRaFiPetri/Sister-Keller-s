@@ -44,7 +44,6 @@ public class GameController : MonoBehaviour
         {
             if (player != null)
                 player.SetActive(true);
-                playerStats.SetWalkingMode();
                 playerInt.enabled = true;
 
         }
