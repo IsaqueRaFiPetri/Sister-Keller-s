@@ -77,7 +77,7 @@ public class StopBarPuzzle : MonoBehaviour
                 if (infoPanel != null)
                 {
                     infoPanel.SetActive(true);
-                    Invoke(nameof(HideMinigame), hideDelay);
+                    //Invoke(nameof(HideMinigame), hideDelay);
                 }
                 return;
             }
@@ -95,7 +95,7 @@ public class StopBarPuzzle : MonoBehaviour
         greenZone.anchoredPosition = new Vector2(randomX, greenZone.anchoredPosition.y);
     }
 
-    void HideMinigame()
+    public void HideMinigame()
     {
         if (infoPanel != null)
         {
