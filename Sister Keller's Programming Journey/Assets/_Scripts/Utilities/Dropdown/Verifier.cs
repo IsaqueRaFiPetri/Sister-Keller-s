@@ -1,35 +1,44 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-enum verifier
-{
-    none, wrong, correct
-}
 public class Verifier : MonoBehaviour
 {
     public static Verifier Instance;
-    public int correctDropdowns, currentDropdowns;
-    public UnityEvent Correct, Wrong, Verify;
 
-    public void Awake()
+    public UnityEvent Correct;
+    public UnityEvent Wrong;
+    public UnityEvent Verify;
+
+    [SerializeField] DropdowManager[] dropdowns;
+
+    private void Awake()
     {
-        currentDropdowns = 0;
-        Instance = this;
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
-    public void VerifyCall() //put in OnClick
+
+    public void VerifyCall() // put on OnClick
     {
-        Verify.Invoke();
-    }
-    public void verifier() //put in OnClick
-    {
-        if (currentDropdowns >= correctDropdowns)
+        Verify?.Invoke();
+
+        // reset count
+        int currentDropdowns = 0;
+        
+        foreach (var d in dropdowns)
         {
-            Correct.Invoke();
+            if (d.IsCorrect())
+                currentDropdowns++;
+        }
+
+        // check result
+        if (currentDropdowns == dropdowns.Length)
+        {
+            Correct?.Invoke();
             Debug.Log("Está Correto");
         }
         else
         {
-            Wrong.Invoke();
+            Wrong?.Invoke();
             Debug.Log("Está Incorreto");
         }
     }

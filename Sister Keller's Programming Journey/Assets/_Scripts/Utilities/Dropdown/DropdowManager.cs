@@ -1,35 +1,26 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DropdowManager : MonoBehaviour
 {
     TMP_Dropdown dropdown;
-    public int correctValue, currentValue;
-    bool correct;
-    public void DropDown()
-    {
-        currentValue = dropdown.value;
-        if (currentValue == correctValue)
-        {
-            correct = true;
-        }
-        else
-            correct = false;
-    }
+    public int correctValue;
+    bool isCorrect;
+
     private void Start()
     {
         dropdown = GetComponent<TMP_Dropdown>();
+        dropdown.onValueChanged.AddListener(OnDropdownChanged); // listen for changes
+        OnDropdownChanged(dropdown.value); // initialize state
     }
-    private void Update()
+
+    private void OnDropdownChanged(int value)
     {
-        Debug.Log(currentValue);
+        isCorrect = (value == correctValue);
     }
-    public void Verify() //put in the event VERIFY in VERIFIER.cs
+
+    public bool IsCorrect()
     {
-        if (correct == true)
-        {
-            Verifier.Instance.currentDropdowns++;
-        }
+        return isCorrect;
     }
 }
