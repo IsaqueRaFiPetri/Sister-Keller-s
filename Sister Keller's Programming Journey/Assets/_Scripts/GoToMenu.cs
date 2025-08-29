@@ -9,12 +9,12 @@ public class GoToMenu : MonoBehaviour
     {
         if (goToMenuOnEnable)
         {
-            SceneManager.LoadScene("GameMap");
+            SceneManager.LoadScene("CamTest");
         }
     }
 
     public void LoadMenuScene()
     {
-        SceneManager.LoadScene("GameMap");
+        SceneManager.LoadScene("CamTest");
     }
 }
