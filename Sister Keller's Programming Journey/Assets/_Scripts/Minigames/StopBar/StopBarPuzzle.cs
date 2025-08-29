@@ -77,23 +77,23 @@ public class StopBarPuzzle : MonoBehaviour
                 if (infoPanel != null)
                 {
                     infoPanel.SetActive(true);
-                    //Invoke(nameof(HideMinigame), hideDelay);
                 }
                 return;
             }
 
-            Invoke(nameof(ResetGame), 0f);
+            Invoke(nameof(ResetGame), hideDelay); // delay instead of instant reset
         }
         else
         {
             Debug.Log("FALHOU! Tente novamente.");
-            Invoke(nameof(ResetGame), 0f);
+            Invoke(nameof(ResetGame), 0f); // wait before retry
         }
 
         float halfWidth = greenZone.rect.width / 2f;
         float randomX = Random.Range(limitLeft + halfWidth, limitRight - halfWidth);
         greenZone.anchoredPosition = new Vector2(randomX, greenZone.anchoredPosition.y);
     }
+
 
     public void HideMinigame()
     {
