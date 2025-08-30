@@ -81,25 +81,25 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 3
+    value: -35
   tint:
     overrideState: 1
     value: 1
   colorFilter:
     overrideState: 1
-    value: {r: 0.6367924, g: 0.65617096, b: 1, a: 1}
+    value: {r: 0.28230685, g: 0.31987807, b: 0.9811321, a: 1}
   hueShift:
     overrideState: 1
     value: 1
   saturation:
     overrideState: 1
-    value: 0
+    value: 8
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 1
-    value: -0.1
+    value: -1.72
   contrast:
     overrideState: 1
     value: 0
