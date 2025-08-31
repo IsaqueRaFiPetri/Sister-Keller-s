@@ -20,7 +20,6 @@ public class StopBarPuzzle : MonoBehaviour
     [SerializeField] GameObject infoPanel;
     [SerializeField] int needToOpen;
     [SerializeField] GameObject gamePainel;
-    [SerializeField] float hideDelay;
     [SerializeField] GameObject hideBTN;
 
     bool moving = true;
@@ -81,7 +80,7 @@ public class StopBarPuzzle : MonoBehaviour
                 return;
             }
 
-            Invoke(nameof(ResetGame), hideDelay); // delay instead of instant reset
+            Invoke(nameof(ResetGame), 0f); // delay instead of instant reset
         }
         else
         {
@@ -92,17 +91,6 @@ public class StopBarPuzzle : MonoBehaviour
         float halfWidth = greenZone.rect.width / 2f;
         float randomX = Random.Range(limitLeft + halfWidth, limitRight - halfWidth);
         greenZone.anchoredPosition = new Vector2(randomX, greenZone.anchoredPosition.y);
-    }
-
-
-    public void HideMinigame()
-    {
-        if (infoPanel != null)
-        {
-            gamePainel.SetActive(false);
-            hideBTN.SetActive(true);
-        }
-            
     }
 
     public void ResetGame()
