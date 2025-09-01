@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Virus : MonoBehaviour
 {
-    public Transform target;
-    public float speed;
-    public int health;
+    private Transform target;
+    private float speed;
+    private int health;
 
     private ProgressBar progressBar;
     private VirusManager virusManager;
@@ -12,7 +12,7 @@ public class Virus : MonoBehaviour
     void Start()
     {
         speed = Random.Range(2f, 6f);
-        health = Random.Range(2, 5); // de 3 a 10
+        health = Random.Range(2, 5);
     }
 
     public void Setup(Transform target, ProgressBar progressBar, VirusManager virusManager)

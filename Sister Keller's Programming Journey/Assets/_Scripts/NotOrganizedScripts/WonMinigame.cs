@@ -2,19 +2,10 @@ using UnityEngine;
 
 public class WonMinigame : MonoBehaviour
 {
-    public bool WonPcGame;
+    public bool WonPcGame = false;
 
-    void Awake()
+    public void ResetWin()
     {
-        var objetos = Object.FindObjectsByType<WonMinigame>(FindObjectsSortMode.None);
-
-        if (objetos.Length > 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
+        WonPcGame = false;
     }
-
 }
