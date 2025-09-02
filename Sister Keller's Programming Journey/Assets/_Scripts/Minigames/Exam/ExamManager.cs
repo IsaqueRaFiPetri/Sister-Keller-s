@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
@@ -12,9 +13,13 @@ public class ExamManager : MonoBehaviour
     public TextMeshProUGUI questionTextUI;
     public Button[] answerButtons;
 
-    private List<Question> selectedQuestions = new List<Question>();
-    private int currentQuestionIndex = 0;
-    private int score = 0;
+    List<Question> selectedQuestions = new List<Question>();
+    int currentQuestionIndex = 0;
+    int goodScore = 0;
+    int badScore = 0;
+
+    [SerializeField] UnityEvent AnswerCorrectly, AnswerWrongly;
+    [SerializeField] UnityEvent GoodFinal, BadFinal, NeutralFinal;
 
     void Start()
     {
@@ -63,11 +68,14 @@ public class ExamManager : MonoBehaviour
         if (isCorrect)
         {
             Debug.Log("Correct!");
-            score++;
+            AnswerCorrectly.Invoke();
+            goodScore++;
         }
         else
         {
             Debug.Log("Wrong!");
+            AnswerWrongly.Invoke();
+            badScore++;
         }
 
         currentQuestionIndex++;
@@ -76,7 +84,18 @@ public class ExamManager : MonoBehaviour
 
     void EndExam()
     {
-        Debug.Log("Exam Finished! Score: " + score + "/" + selectedQuestions.Count);
+        if(goodScore > badScore)
+        {
+
+        }
+        else if(badScore > goodScore)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     void ShuffleList<T>(List<T> list)
