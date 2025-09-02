@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ExamManager : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class ExamManager : MonoBehaviour
     public List<Question> allQuestions = new List<Question>();
 
     [Header("UI References")]
-    public Text questionTextUI;
-    public Button[] answerButtons; // assign 4 buttons in inspector
+    public TextMeshProUGUI questionTextUI;
+    public Button[] answerButtons;
 
     private List<Question> selectedQuestions = new List<Question>();
     private int currentQuestionIndex = 0;
@@ -23,12 +24,11 @@ public class ExamManager : MonoBehaviour
 
     void SetupExam()
     {
-        // Shuffle all questions
         List<Question> shuffled = new List<Question>(allQuestions);
         ShuffleList(shuffled);
 
-        // Pick first 10
-        selectedQuestions = shuffled.GetRange(0, 10);
+        int numberToTake = Mathf.Min(10, shuffled.Count);
+        selectedQuestions = shuffled.GetRange(0, numberToTake);
     }
 
     void ShowQuestion()
@@ -41,23 +41,18 @@ public class ExamManager : MonoBehaviour
 
         Question q = selectedQuestions[currentQuestionIndex];
 
-        // Shuffle answer order
         List<int> answerOrder = new List<int> { 0, 1, 2, 3 };
         ShuffleList(answerOrder);
 
-        // Set question text
         questionTextUI.text = q.questionText;
 
-        // Set button texts and listeners
         for (int i = 0; i < answerButtons.Length; i++)
         {
             int answerIndex = answerOrder[i];
-            answerButtons[i].GetComponentInChildren<Text>().text = q.answers[answerIndex];
+            answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = q.answers[answerIndex];
 
-            // Clear old listeners
             answerButtons[i].onClick.RemoveAllListeners();
 
-            // Capture index inside closure
             int capturedIndex = answerIndex;
             answerButtons[i].onClick.AddListener(() => OnAnswerSelected(capturedIndex == q.correctAnswerIndex));
         }
@@ -82,10 +77,8 @@ public class ExamManager : MonoBehaviour
     void EndExam()
     {
         Debug.Log("Exam Finished! Score: " + score + "/" + selectedQuestions.Count);
-        // TODO: Show results on canvas (you can add a panel with final message)
     }
 
-    // Utility: shuffle any list
     void ShuffleList<T>(List<T> list)
     {
         for (int i = 0; i < list.Count; i++)
