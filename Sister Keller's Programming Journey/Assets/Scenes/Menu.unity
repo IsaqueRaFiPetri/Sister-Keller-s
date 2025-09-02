@@ -3596,7 +3596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: martian ; LogicMoon ; Tuomas_Data ; eritnhut1992
+  m_text: martian ; LogicMoon ; Tuomas_Data ; eritnhut1992 ; olenchic ; mgc5066
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9858bb3f66441e2459f7016369bc260f, type: 2}
   m_sharedMaterial: {fileID: 5099421735486856148, guid: 9858bb3f66441e2459f7016369bc260f, type: 2}

@@ -10,7 +10,7 @@ public class ExamManager : MonoBehaviour
     public List<Question> allQuestions = new List<Question>();
 
     [Header("UI References")]
-    public TextMeshProUGUI questionTextUI;
+    public TextMeshProUGUI questionTextUI, goodScoreTxt, badScoreTxt;
     public Button[] answerButtons;
 
     List<Question> selectedQuestions = new List<Question>();
@@ -19,7 +19,7 @@ public class ExamManager : MonoBehaviour
     int badScore = 0;
 
     [SerializeField] UnityEvent AnswerCorrectly, AnswerWrongly;
-    [SerializeField] UnityEvent GoodFinal, BadFinal, NeutralFinal;
+    [SerializeField] UnityEvent GoodFinal, BadFinal;
 
     void Start()
     {
@@ -70,12 +70,14 @@ public class ExamManager : MonoBehaviour
             Debug.Log("Correct!");
             AnswerCorrectly.Invoke();
             goodScore++;
+            goodScoreTxt.SetText(goodScore + " / 10");
         }
         else
         {
             Debug.Log("Wrong!");
             AnswerWrongly.Invoke();
             badScore++;
+            badScoreTxt.SetText(badScore + " / 10");
         }
 
         currentQuestionIndex++;
@@ -84,17 +86,13 @@ public class ExamManager : MonoBehaviour
 
     void EndExam()
     {
-        if(goodScore > badScore)
+        if(goodScore >= 7)
         {
-
-        }
-        else if(badScore > goodScore)
-        {
-
+            GoodFinal.Invoke();
         }
         else
         {
-
+            BadFinal.Invoke();
         }
     }
 
