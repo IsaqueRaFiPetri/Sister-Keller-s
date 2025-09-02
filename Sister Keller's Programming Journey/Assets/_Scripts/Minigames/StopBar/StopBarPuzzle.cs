@@ -80,12 +80,11 @@ public class StopBarPuzzle : MonoBehaviour
                 return;
             }
 
-            Invoke(nameof(ResetGame), 0f); // delay instead of instant reset
+            ResetGame();
         }
         else
         {
-            Debug.Log("FALHOU! Tente novamente.");
-            Invoke(nameof(ResetGame), 0f); // wait before retry
+            ResetGame();
         }
 
         float halfWidth = greenZone.rect.width / 2f;
