@@ -7,4 +7,9 @@ public class WinLoseCondition : MonoBehaviour
     {
         SceneManager.LoadScene("CamTest");
     }
+
+    public void EndWonGame()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
